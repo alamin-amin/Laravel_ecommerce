@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+      
     }
 
     /**
@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin/pages/category');
+        return view('admin.category.create');
     }
 
     /**
@@ -28,7 +28,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data ['category_name']=$request->category_name;
+       $data ['category_description']=$request->category_description;
+       category::create($data);
+       return back();
     }
 
     /**
